@@ -1,10 +1,9 @@
 import cv2
 import os
 import datetime
-# import functions
+import modules.functions as function
 import modules.speech as speech
 import modules.getIntent as Intent
-# import modules.detect as detect
 
 # create an object from speech module
 engine = speech.Speech()
@@ -39,20 +38,17 @@ while True:
                 print("read the text")
 
             elif(intent == 'play'):
-                print("play audio")
+                function.play_file("audio_files/sound.mp3")
 
             elif(intent == 'brightness'):
-                print("brightness outside")
-
-            elif(intent == 'form'):
-                print("Help me fill the form")
+                function.get_brightness(cam=cam)
 
             elif(intent == 'time'):
-                print("time right now")
+                function.get_time()
 
             else:
                 # no intent matched
                 engine.text_to_speech(
                     "Sorry, I did not understood. Can you say it again?")
 
-cam.release()
+    cam.release()
