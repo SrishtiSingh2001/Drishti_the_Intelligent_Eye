@@ -1,12 +1,13 @@
 import azure.cognitiveservices.speech as speechsdk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from modules.keys import keys
 
 
 class Speech():
     def __init__(self):
         speech_config = speechsdk.SpeechConfig(
-            subscription="60d4b62425294e41ae5d4ef5cb346e84", region="centralindia")
+            subscription=keys['speech_key'], region=keys['speech_region'])
 
         audio_config_output = speechsdk.audio.AudioOutputConfig(
             use_default_speaker=True)
@@ -39,18 +40,6 @@ class Speech():
             return speech_recognition_result.text
 
         return None
-
-        # elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
-        #     print("No speech could be recognized: {}".format(
-        #         speech_recognition_result.no_match_details))
-        # elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
-        #     cancellation_details = speech_recognition_result.cancellation_details
-        #     print("Speech Recognition canceled: {}".format(
-        #         cancellation_details.reason))
-        #     if cancellation_details.reason == speechsdk.CancellationReason.Error:
-        #         print("Error details: {}".format(
-        #             cancellation_details.error_details))
-        #         print("Did you set the speech resource key and region values?")
 
     def clean(self, text):
         lem = WordNetLemmatizer()

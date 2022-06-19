@@ -1,4 +1,5 @@
 import requests
+from modules.keys import keys
 
 
 def get_intent(query):
@@ -8,14 +9,14 @@ def get_intent(query):
         # Values to modify.
 
         # YOUR-APP-ID: The App ID GUID found on the www.luis.ai Application Settings page.
-        appId = '380a7e65-f511-4714-9f04-ca0ba4e5cb77'
+        appId = keys['intent_app_id']
 
         # YOUR-PREDICTION-KEY: Your LUIS prediction key, 32 character value.
-        prediction_key = '97cf5071ac344a5c8dcd2a829b04968a'
+        prediction_key = keys['intent_key']
 
         # YOUR-PREDICTION-ENDPOINT: Replace with your prediction endpoint.
         # For example, "https://westus.api.cognitive.microsoft.com/"
-        prediction_endpoint = 'https://ielanguageunderstanding.cognitiveservices.azure.com/'
+        prediction_endpoint = keys['intent_endpoint']
 
         # The utterance you want to use.
         utterance = query
