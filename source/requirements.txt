@@ -2,3 +2,5 @@ nltk
 azure-cognitiveservices-speech
 azure-cognitiveservices-vision-computervision
 pillow
+opencv-python
+mpg123
