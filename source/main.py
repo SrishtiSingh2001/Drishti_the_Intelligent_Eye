@@ -1,6 +1,4 @@
 import cv2
-import os
-import datetime
 import modules.functions as function
 import modules.speech as speech
 import modules.getIntent as Intent
