@@ -1,4 +1,3 @@
-nltk
 azure-cognitiveservices-speech
 azure-cognitiveservices-vision-computervision
 pillow

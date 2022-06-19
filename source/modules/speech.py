@@ -1,6 +1,4 @@
 import azure.cognitiveservices.speech as speechsdk
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 from modules.keys import keys
 
 
@@ -30,6 +28,12 @@ class Speech():
         self.speech_recognizer = speechsdk.SpeechRecognizer(
             speech_config=speech_config, audio_config=audio_config_input)
 
+        # custom training
+        phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(
+            self.speech_recognizer)
+        phrase_list_grammar.addPhrase("Drishti")
+        phrase_list_grammar.clear()
+
     def recognize_speech(self):
         print("Speak into your microphone.")
 
@@ -40,20 +44,6 @@ class Speech():
             return speech_recognition_result.text
 
         return None
-
-    def clean(self, text):
-        lem = WordNetLemmatizer()
-        stop_words = set(stopwords.words("english"))
-        new_words = ["hey", "hi", "hello", "what's up", "i", "please", "help", "using", "show", "result", "large",
-                     "also", "iv", "one", "two", "new", "previously", "shown"]
-        stop_words = stop_words.union(new_words) - {"whom", "who"}
-        text = text.lower()
-        text = text.split()
-        lem = WordNetLemmatizer()
-        text = [lem.lemmatize(word) for word in text if not word in
-                stop_words]
-        text = " ".join(text)
-        return text
 
     def text_to_speech(self, text):
 
