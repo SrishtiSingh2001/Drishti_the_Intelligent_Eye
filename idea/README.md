@@ -12,6 +12,13 @@ Furthermore, 40% of people with visual impairment reported at least one head acc
 
 So, how can we help them and be there for them 24 hours a day, seven days a week so they can feel safe and content?
 
+### Theme: Invent Tech-based solutions for Women Empowerment in India
+Our project covers:
+1. Create solutions for women health, safety and upliftment of vulnerable section.
+2. Build solutions to enable economic freedom for women.
+3. Shape the idea that you believe in and make a difference.
+
+
 ## Our Motivation
 
 Meet Kavita Bisht, who was blinded as a result of a brutal acid attack. She used her difficulties to learn how to live her life with a positive attitude. She has so far empowered over 80 differently abled children in Uttarakhand.
