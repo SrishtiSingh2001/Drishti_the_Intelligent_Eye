@@ -11,7 +11,7 @@ intent = None
 
 while True:
     cam = cv2.VideoCapture(0)
-    #if above statement does not work, try cam = cv2.VideoCapture(0)
+    # if above statement does not work, try cam = cv2.VideoCapture(0)
 
     if not listening:
         resp = engine.recognize_speech()
@@ -46,14 +46,15 @@ while True:
             elif(intent == 'time'):
                 function.get_time()
 
-            if(intent == 'color'):
+            elif(intent == 'color'):
                 detect.color(cam=cam)
 
             elif intent == 'stop':
                 listening = False
-                engine.text_to_speech("OK Quitting now, Please tell me if you need my assistance again.")
+                engine.text_to_speech(
+                    "OK Quitting now, Please tell me if you need my assistance again.")
 
-            else:
+            elif resp != None:
                 # no intent matched
                 engine.text_to_speech(
                     "Sorry, I did not understood. Can you say it again?")
