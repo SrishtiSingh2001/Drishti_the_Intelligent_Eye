@@ -103,7 +103,8 @@ py main.py
 3. Play audio - 'Please play the audio', 'Play my favorite song', etc.
 4. Time - 'What's the time right now?', 'Tell me the time', ect.
 5. Brightness - 'How is the brightness outside?', 'Is it bright ourside?', etc.
-6. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
+6. Color - 'State the dominant colors of the view', 'What is the color of objects in the frame?', etc.
+7. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
