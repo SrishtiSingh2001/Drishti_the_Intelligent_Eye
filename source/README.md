@@ -59,6 +59,24 @@ cd Drishti_the_Intelligent_Eye/source
 pip install -r requirements.txt
 ```
 
+## File structure
+
+ ### source
+
+* [audio_files/](./source/audio_files) - contains audio files
+  * [sound.mp3](./source\audio_files/sound.mp3)
+* [modules/](./source/modules) 
+  * [detect.py](./source/modules/detect.py) - Functions for object and color detection and text extraction
+  * [functions.py](./source/modules/functions.py) - Functions of get time, brightness and play audio
+  * [getIntent.py](./source/modules/getIntent.py) - Function to detect intent using LUIS rest API
+  * [speech.py](./source/modules/speech.py) - Speech class for speech synthesis and recognition
+  * [\_\_init\_\_.py](./source/modules/__init__.py)
+* [.gitignore](./source/.gitignore)
+* [main.py](./source/main.py) - Main source file
+* [README.md](./source/README.md)
+* [requirements.txt](./source/requirements.txt) - All the library dependency list
+
+
 ## How to run the code?
 1. cd into source folder
 ```
@@ -85,7 +103,8 @@ py main.py
 3. Play audio - 'Please play the audio', 'Play my favorite song', etc.
 4. Time - 'What's the time right now?', 'Tell me the time', ect.
 5. Brightness - 'How is the brightness outside?', 'Is it bright ourside?', etc.
-6. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
+6. Color - 'State the dominant colors of the view', 'What is the color of objects in the frame?', etc.
+7. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
