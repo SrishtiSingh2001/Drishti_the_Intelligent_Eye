@@ -7,7 +7,6 @@ import datetime
 
 engine = speech.Speech()
 
-
 def get_brightness(cam):
     ret, frame = cam.read()
     if ret == None:
@@ -32,13 +31,15 @@ def get_brightness(cam):
 
 
 def play_file(fname):
+    #for Windows Users
     os.system("start " + fname)
+    #for Linux Users
+    #os.system("mpg123 " + fname)
     time.sleep(4)
     return
 
 
 def get_time():
-
     currentDT = datetime.datetime.now()
 
     engine.text_to_speech("The time is {} hours and {} minutes".format(
