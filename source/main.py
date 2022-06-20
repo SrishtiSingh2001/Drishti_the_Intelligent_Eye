@@ -2,6 +2,7 @@ import cv2
 import modules.functions as function
 import modules.speech as speech
 import modules.getIntent as Intent
+import modules.detect as detect
 
 # create an object from speech module
 engine = speech.Speech()
@@ -10,6 +11,7 @@ intent = None
 
 while True:
     cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    #if above statement does not work, try cam = cv2.VideoCapture(0)
 
     if not listening:
         resp = engine.recognize_speech()
@@ -30,10 +32,10 @@ while True:
             intent = intent.lower()
 
             if(intent == 'describe'):
-                print("description of the scene")
+                detect.describeScene(cam=cam)
 
             elif(intent == 'read'):
-                print("read the text")
+                detect.read(cam=cam)
 
             elif(intent == 'play'):
                 function.play_file("audio_files/sound.mp3")
@@ -43,6 +45,10 @@ while True:
 
             elif(intent == 'time'):
                 function.get_time()
+
+            elif intent == 'stop':
+                listening = False
+                engine.text_to_speech("OK Quitting now, Please tell me if you need my assistance again.")
 
             else:
                 # no intent matched
