@@ -6,7 +6,7 @@
 
 In today's bustling environment, it's difficult for visually impaired people to travel around on their own, read text, understand their surroundings, and seek aid from others.
 
-Due to a variety of socioeconomic and cultural biases, women have limited access to eye health care, accounting for 55% of the world's 1.1 billion visually impaired people. 89 percent of them live in low and middle-income households, with no access to treatment due to ignorance and bias, and the number is expected to triple by 2050.
+Due to a variety of socioeconomic and cultural biases, women have limited access to eye health care. Out of 1.1 billion visually impaired people globally of which 43 million are blind, 295 million people have moderate to severe vision impairment, 258 million people have mild vision impairment and 510 million people have near vision impairment, women constitutes 55% of the 1.1 billion visually impaired people. 89 percent of them live in low and middle-income households, with no access to treatment due to ignorance and bias, and the number is expected to triple by 2050.
 
 Furthermore, 40% of people with visual impairment reported at least one head accident per year. Visual impairment affects 73% of people over the age of 50, and loneliness is more prevalent in women.
 
