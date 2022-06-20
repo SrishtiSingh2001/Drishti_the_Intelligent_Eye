@@ -40,7 +40,6 @@ def describeScene(cam):
         print("Description of the view: ")
         engine.text_to_speech("Description of the view: ")
         if (len(description_result.captions) == 0):
-            print("No description detected.")
             engine.text_to_speech("No description detected")
         else:
             for caption in description_result.captions:
@@ -78,7 +77,6 @@ def categorizeObjects(path):
     print("Categories from image: ")
     engine.text_to_speech("I will categorize the objects around you")
     if (len(categorize_results_local.categories) == 0):
-        print("No categories detected.")
         engine.text_to_speech("No categories detected")
     else:
         for category in categorize_results_local.categories:
@@ -116,7 +114,6 @@ def detectObjects(path):
     # Print results of detection with bounding boxes
     print("Detecting objects in image:")
     if len(detect_objects_results_local.objects) == 0:
-        print("No objects detected.")
         engine.text_to_speech("No objects detected")
     else:
         for object in detect_objects_results_local.objects:
@@ -124,7 +121,7 @@ def detectObjects(path):
             engine.text_to_speech(object.object_property)
     print()
     '''
-    END - Detect Objects - local
+    END - Detect Objects
     '''
     checkRoad(detect_objects_results_local.objects)
 
@@ -209,8 +206,7 @@ def read(cam):
         read_result = computervision_client.get_read_result(operation_id)
         if read_result.status.lower () not in ['notstarted', 'running']:
             break
-        print ('Waiting for result...')
-        engine.text_to_speech("Waiting for result")
+        engine.text_to_speech("Waiting for result...")
         time.sleep(10)
 
     # Print results, line by line
@@ -221,6 +217,41 @@ def read(cam):
                 engine.text_to_speech(line.text)
                 print(line.bounding_box)
     print()
-    '''
-    END - Read File
-    '''
+   
+
+
+def color(cam):
+    ret, frame = cam.read()
+    if ret == None:
+        engine.text_to_speech("Not getting any frame. Quitting now...")
+    else:
+        cv2.imwrite('op.jpg', frame)
+        path = "op.jpg"
+        print("===== Detect Color =====")
+        engine.text_to_speech("Detecting dominant colors of the frame")
+        # Open local image
+        local_image = open(path, "rb")
+        # Select visual feature(s) you want
+        local_image_features = ["color"]
+
+        # <snippet_client>
+        computervision_client = ComputerVisionClient(keys['vision_endpoint'], CognitiveServicesCredentials(keys['vision_key']))
+        # </snippet_client>
+
+        # Call API with local image and features
+        detect_color_results_local = computervision_client.analyze_image_in_stream(local_image, local_image_features)
+
+        # Print results of the color scheme detected
+        engine.text_to_speech("Getting color scheme of the frame: ")
+        
+        engine.text_to_speech("Is black and white: {}".format(detect_color_results_local.color.is_bw_img))
+
+        engine.text_to_speech("Accent color: {}".format(detect_color_results_local.color.accent_color))
+
+        engine.text_to_speech("Dominant background color: {}".format(detect_color_results_local.color.dominant_color_background))
+
+        engine.text_to_speech("Dominant foreground color: {}".format(detect_color_results_local.color.dominant_color_foreground))
+
+        engine.text_to_speech("Dominant colors: {}".format(detect_color_results_local.color.dominant_colors))
+
+        print()
