@@ -10,7 +10,7 @@ listening = False
 intent = None
 
 while True:
-    cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    cam = cv2.VideoCapture(0)
     #if above statement does not work, try cam = cv2.VideoCapture(0)
 
     if not listening:
@@ -45,6 +45,9 @@ while True:
 
             elif(intent == 'time'):
                 function.get_time()
+
+            if(intent == 'color'):
+                detect.color(cam=cam)
 
             elif intent == 'stop':
                 listening = False
