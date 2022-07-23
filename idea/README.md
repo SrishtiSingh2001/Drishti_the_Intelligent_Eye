@@ -60,7 +60,7 @@ Lightweight smart glasses with a camera for capturing pictures, headphones, a US
 
 ## Key features
 
-![Features](https://user-images.githubusercontent.com/64425886/174597337-e6c768fb-9697-4c3a-a243-d22211aa3f0f.png)
+<img width="449" alt="image" src="https://user-images.githubusercontent.com/64425886/180613839-0d4d5ad2-dea7-43e4-99fb-44131fc22cd4.png">
 
 ## Novelty of the project
 

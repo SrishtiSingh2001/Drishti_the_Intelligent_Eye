@@ -104,7 +104,9 @@ py main.py
 4. Time - 'What's the time right now?', 'Tell me the time', ect.
 5. Brightness - 'How is the brightness outside?', 'Is it bright ourside?', etc.
 6. Color - 'State the dominant colors of the view', 'What is the color of objects in the frame?', etc.
-7. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
+7. Analyse receipt - 'Please analyse the receipt for me.', 'Help me analyse this receipt', etc.
+8. Get weather report - 'How is the weather at my location?', 'What is the weather status right now?', etc.
+9. End conversation - 'Okay quit now!', 'Let's stop this conversation', etc.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
