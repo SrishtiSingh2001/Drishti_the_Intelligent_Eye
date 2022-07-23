@@ -86,18 +86,17 @@ def weatherForecaste():
     result = f" The current weather status of {location} is {weather_status}. The current temperature of the surrounding is {weather_temp['temp']} degree Celsius and it feels like {weather_temp['feels_like']} degree Celsius."
 
     if weather_rain:
-        rain_dict = weather_rain.rain
-        result += f" About {rain_dict['1h']} milli meters of rain has fallen in last 1 hour."
+        result += f" About {weather_rain['1h']} milli meters of rain has fallen in last 1 hour."
 
-    if visibility > 0.1:
+    if float(visibility) < 0.1:
         result += " The visibility is very low. It is suggested to stay at home in this situtation."
     else:
         result += " The visibilty is good around you. You can walk safely on the roads."
 
-    if national_weather_alerts:
-        result += ' There are some national weather alerts as well. Listen to them carefully:'
-        for alert in national_weather_alerts:
-            print(alert)
-            result += f"\n{alert.description} - Alert sent by {alert.sender}"
+    # if national_weather_alerts:
+    #     result += ' There are some national weather alerts as well. Listen to them carefully:'
+    #
+    #     for alert in national_weather_alerts[:1]:
+    #         result += f"\n{alert.description} - Alert sent by {alert.sender}"
 
     engine.text_to_speech(result)

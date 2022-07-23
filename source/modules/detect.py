@@ -1,5 +1,4 @@
 import cv2
-import io
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 from msrest.authentication import CognitiveServicesCredentials
@@ -55,7 +54,7 @@ def describeScene(cam):
         '''
         END - Describe an Image
         '''
-        categorizeObjects(path)
+        # categorizeObjects(path)
         detectObjects(path)
 
 
@@ -253,20 +252,8 @@ def color(cam):
         detect_color_results_local = computervision_client.analyze_image_in_stream(
             local_image, local_image_features)
 
-        # Print results of the color scheme detected
-        engine.text_to_speech("Getting color scheme of the frame: ")
-
-        engine.text_to_speech("Is black and white: {}".format(
-            detect_color_results_local.color.is_bw_img))
-
-        engine.text_to_speech("Accent color: {}".format(
-            detect_color_results_local.color.accent_color))
-
-        engine.text_to_speech("Dominant background color: {}".format(
-            detect_color_results_local.color.dominant_color_background))
-
-        engine.text_to_speech("Dominant foreground color: {}".format(
-            detect_color_results_local.color.dominant_color_foreground))
+        if detect_color_results_local.color.is_bw_img:
+            engine.text_to_speech("The intented frame looks black and white!")
 
         engine.text_to_speech("Dominant colors: {}".format(
             detect_color_results_local.color.dominant_colors))
@@ -281,7 +268,7 @@ def analyzeReceipt():
             os.path.abspath(__file__),
             "..",
             "..",
-            "./images/ReceiptSwiss.jpg",
+            "./images/receipt.png",
         )
     )
 
