@@ -3,3 +3,5 @@ azure-cognitiveservices-vision-computervision
 pillow
 opencv-python
 mpg123
+azure-ai-formrecognizer
+weather-api

@@ -1,4 +1,5 @@
 import cv2
+import os
 import modules.functions as function
 import modules.speech as speech
 import modules.getIntent as Intent
@@ -8,6 +9,7 @@ import modules.detect as detect
 engine = speech.Speech()
 listening = False
 intent = None
+
 
 while True:
     cam = cv2.VideoCapture(0)
@@ -49,6 +51,12 @@ while True:
             elif(intent == 'color'):
                 detect.color(cam=cam)
 
+            elif(intent == 'receipt'):
+                detect.analyzeReceipt()
+
+            elif(intent == 'weather'):
+                function.weatherForecaste()
+
             elif intent == 'stop':
                 listening = False
                 engine.text_to_speech(
@@ -60,3 +68,4 @@ while True:
                     "Sorry, I did not understood. Can you say it again?")
 
     cam.release()
+fs
