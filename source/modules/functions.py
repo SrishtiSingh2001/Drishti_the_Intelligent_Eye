@@ -7,6 +7,7 @@ import datetime
 from json import loads
 from requests import get
 from pyowm.owm import OWM
+from modules.keys import keys
 
 
 engine = speech.Speech()
@@ -54,7 +55,7 @@ def get_time():
 
 
 def weatherForecaste():
-    WEATHER_API_KEY = "f19d6e315954bfb123e794ab55aa28c4"
+    WEATHER_API_KEY = keys['weather_api_key']
 
     response = get("http://ipinfo.io/json")
     responseDecode = loads(response.text)
