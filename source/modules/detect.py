@@ -272,8 +272,8 @@ def analyzeReceipt():
         )
     )
 
-    endpoint = "https://drishti-form-recognizer.cognitiveservices.azure.com/"
-    key = "1de10cfec68840f8836c6e4cf9fa87db"
+    endpoint = keys['analyze_receipt_endpoint']
+    key = keys['analyze_receipt_key']
 
     form_recognizer_client = FormRecognizerClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
